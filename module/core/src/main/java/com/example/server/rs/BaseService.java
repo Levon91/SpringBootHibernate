@@ -8,8 +8,8 @@ import com.example.server.util.InitializerContext;
  */
 public abstract class BaseService {
 
-    @Autowired
-    protected InitializerContext initializerContext;
+//    @Autowired
+//    protected InitializerContext initializerContext;
 
 
 }

@@ -5,6 +5,8 @@ import com.example.model.Person;
 import com.example.server.path.PathConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -13,9 +15,9 @@ import java.rmi.server.ServerNotActiveException;
 /**
  * Created by levont on 25/10/2016.
  */
-@Path(PathConstants.SERVICE)
+@RequestMapping(value = PathConstants.SERVICE)
 @Produces(MediaType.APPLICATION_JSON)
-@Component
+@RestController
 public class TestService extends BaseService {
 
     @Autowired
@@ -23,7 +25,7 @@ public class TestService extends BaseService {
 
     @POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)
-    @Path(PathConstants.TEST)
+    @RequestMapping(value = PathConstants.TEST)
     public void test(@FormParam("name") String name,
                      @FormParam("country") String country) {
         try {
