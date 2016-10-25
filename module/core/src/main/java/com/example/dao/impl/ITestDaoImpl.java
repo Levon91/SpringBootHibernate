@@ -19,6 +19,7 @@ public class ITestDaoImpl implements ITestDao {
 
     private SessionFactory sessionFactory;
     Transaction tx = null;
+
     @Autowired
     public ITestDaoImpl(EntityManagerFactory factory) {
         if(factory.unwrap(SessionFactory.class) == null){
@@ -39,6 +40,5 @@ public class ITestDaoImpl implements ITestDao {
         } finally {
             currentSession.close();
         }
-
     }
 }
