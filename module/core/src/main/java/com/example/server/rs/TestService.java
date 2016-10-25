@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
  * Created by levont on 25/10/2016.
  */
 @RestController
-public class Test {
+public class TestService {
 
     @Produces(value = MediaType.APPLICATION_JSON)
     @RequestMapping(value = "/test", method = RequestMethod.GET)
