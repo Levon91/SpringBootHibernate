@@ -1,10 +1,9 @@
 package com.example.manager.impl;
 
-import com.example.dao.ITestDao;
-import com.example.manager.ITestManager;
-import com.example.model.Person;
+import com.example.dao.IUserDao;
+import com.example.manager.IUserManager;
+import com.example.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,13 +14,13 @@ import java.rmi.server.ServerNotActiveException;
  */
 @Service
 @Transactional(readOnly = true)
-public class ITestManagerImpl implements ITestManager {
+public class IUserManagerImpl implements IUserManager {
 
     @Autowired
-    private ITestDao testDao;
+    private IUserDao testDao;
 
     @Override
-    public void test(Person person) throws ServerNotActiveException {
-        testDao.test(person);
+    public void addUser(User user) throws ServerNotActiveException {
+        testDao.addUser(user);
     }
 }

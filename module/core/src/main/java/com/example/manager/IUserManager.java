@@ -1,13 +1,13 @@
 package com.example.manager;
 
-import com.example.model.Person;
+import com.example.model.User;
 
 import java.rmi.server.ServerNotActiveException;
 
 /**
  * Created by levont on 25/10/2016.
  */
-public interface ITestManager {
+public interface IUserManager {
 
-    void test(Person person) throws ServerNotActiveException;
+    void addUser(User user) throws ServerNotActiveException;
 }

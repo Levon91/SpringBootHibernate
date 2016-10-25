@@ -6,5 +6,5 @@ package com.example.server.path;
 public interface PathConstants {
 
     String SERVICE = "/service";
-    String TEST = "/test";
+    String TEST = "/addUser";
 }

@@ -1,10 +1,9 @@
 package com.example.server.rs;
 
-import com.example.manager.ITestManager;
-import com.example.model.Person;
+import com.example.manager.IUserManager;
+import com.example.model.User;
 import com.example.server.path.PathConstants;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,10 +17,10 @@ import java.rmi.server.ServerNotActiveException;
 @RequestMapping(value = PathConstants.SERVICE)
 @Produces(MediaType.APPLICATION_JSON)
 @RestController
-public class TestService extends BaseService {
+public class UserService extends BaseService {
 
     @Autowired
-    private ITestManager testManager;
+    private IUserManager testManager;
 
     @POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)
@@ -29,10 +28,10 @@ public class TestService extends BaseService {
     public void test(@FormParam("name") String name,
                      @FormParam("country") String country) {
         try {
-            Person person = new Person();
-            person.setName(name);
-            person.setCountry(country);
-            testManager.test(person);
+            User user = new User();
+            user.setName(name);
+            user.setCountry(country);
+            testManager.addUser(user);
         } catch (ServerNotActiveException e) {
             e.printStackTrace();
         }
